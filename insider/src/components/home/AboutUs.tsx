@@ -3,6 +3,7 @@
 import { Box, Container, Typography, Button } from '@mui/material';
 import Image from 'next/image';
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
+import { useRouter } from 'next/navigation';
 import Counter from './Counter';
 
 const eventImages = [
@@ -13,6 +14,12 @@ const eventImages = [
 ];
 
 export default function AboutUs() {
+  const router = useRouter();
+
+  const handleOurJourney = () => {
+    router.push('/work');
+  };
+
   return (
     <Box
       sx={{
@@ -81,48 +88,7 @@ export default function AboutUs() {
               }}
             >
               <Button
-                variant="outlined"
-                endIcon={
-                  <Box
-                    sx={{
-                      width: 24,
-                      height: 24,
-                      borderRadius: '50%',
-                      border: '2px solid #B871E1',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      ml: 1,
-                    }}
-                  >
-                    <ArrowOutwardIcon sx={{ fontSize: 14, color: '#B871E1' }} />
-                  </Box>
-                }
-                sx={{
-                  borderColor: '#B871E1',
-                  borderWidth: '2px',
-                  color: '#B871E1',
-                  borderRadius: '50px',
-                  px: 3,
-                  py: 1.5,
-                  textTransform: 'none',
-                  fontSize: '1rem',
-                  fontWeight: 400,
-                  backgroundColor: 'transparent',
-                  '&:hover': {
-                    borderColor: '#A05AD0',
-                    color: '#A05AD0',
-                    backgroundColor: 'rgba(184, 113, 225, 0.1)',
-                    borderWidth: '2px',
-                  },
-                  '& .MuiButton-endIcon': {
-                    marginLeft: 0.5,
-                  },
-                }}
-              >
-                Event
-              </Button>
-              <Button
+                onClick={handleOurJourney}
                 variant="outlined"
                 endIcon={
                   <Box
