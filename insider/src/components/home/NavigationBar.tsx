@@ -10,9 +10,10 @@ import Image from 'next/image';
 
 interface NavigationBarProps {
   forceWhite?: boolean;
+  hideLetsTalk?: boolean;
 }
 
-export default function NavigationBar({ forceWhite = false }: NavigationBarProps) {
+export default function NavigationBar({ forceWhite = false, hideLetsTalk = false }: NavigationBarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -202,55 +203,57 @@ export default function NavigationBar({ forceWhite = false }: NavigationBarProps
           </Box>
 
           {/* CTA Button */}
-          <Box sx={{ display: { xs: 'none', md: 'block' } }}>
-            <Button
-              component="a"
-              href="/contact"
-              variant="contained"
-              endIcon={
-                <Box
-                  sx={{
-                    width: 22,
-                    height: 22,
-                    borderRadius: '50%',
-                    border: '1px solid #000',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    ml: 1,
-                  }}
-                >
-                  <ArrowOutwardIcon sx={{ fontSize: 13, color: '#000' }} />
-                </Box>
-              }
-              sx={{
-                backgroundColor: '#B871E1',
-                color: '#000',
-                borderRadius: '50px',
-                px: 3,
-                py: 1.2,
-                textTransform: 'none',
-                fontSize: '1rem',
-                fontWeight: 400,
-                display: 'flex',
-                alignItems: 'center',
-                gap: 0.5,
-                textDecoration: 'none',
-                boxShadow: '0 4px 14px rgba(184, 113, 225, 0.3)',
-                transition: 'all 0.3s ease',
-                '&:hover': {
-                  backgroundColor: '#A05AD0',
-                  transform: 'translateY(-2px)',
-                  boxShadow: '0 6px 20px rgba(184, 113, 225, 0.4)',
-                },
-                '& .MuiButton-endIcon': {
-                  marginLeft: 0,
-                },
-              }}
-            >
-              Let&apos;s Talk
-            </Button>
-          </Box>
+          {!hideLetsTalk && (
+            <Box sx={{ display: { xs: 'none', md: 'block' } }}>
+              <Button
+                component="a"
+                href="/contact"
+                variant="contained"
+                endIcon={
+                  <Box
+                    sx={{
+                      width: 22,
+                      height: 22,
+                      borderRadius: '50%',
+                      border: '1px solid #000',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      ml: 1,
+                    }}
+                  >
+                    <ArrowOutwardIcon sx={{ fontSize: 13, color: '#000' }} />
+                  </Box>
+                }
+                sx={{
+                  backgroundColor: '#B871E1',
+                  color: '#000',
+                  borderRadius: '50px',
+                  px: 3,
+                  py: 1.2,
+                  textTransform: 'none',
+                  fontSize: '1rem',
+                  fontWeight: 400,
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 0.5,
+                  textDecoration: 'none',
+                  boxShadow: '0 4px 14px rgba(184, 113, 225, 0.3)',
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    backgroundColor: '#A05AD0',
+                    transform: 'translateY(-2px)',
+                    boxShadow: '0 6px 20px rgba(184, 113, 225, 0.4)',
+                  },
+                  '& .MuiButton-endIcon': {
+                    marginLeft: 0,
+                  },
+                }}
+              >
+                Let&apos;s Talk
+              </Button>
+            </Box>
+          )}
 
           {/* Mobile Menu Button */}
           <IconButton
@@ -360,30 +363,32 @@ export default function NavigationBar({ forceWhite = false }: NavigationBarProps
               About Us
             </Box>
           </ListItem>
-          <ListItem sx={{ mt: 2 }}>
-            <Button
-              component="a"
-              href="/contact"
-              onClick={handleDrawerToggle}
-              variant="contained"
-              fullWidth
-              endIcon={<ArrowOutwardIcon />}
-              sx={{
-                backgroundColor: '#B871E1',
-                color: '#000',
-                borderRadius: '50px',
-                py: 1.5,
-                textTransform: 'none',
-                fontSize: '1rem',
-                fontWeight: 700,
-                '&:hover': {
-                  backgroundColor: '#A05AD0',
-                },
-              }}
-            >
-              Let&apos;s Talk
-            </Button>
-          </ListItem>
+          {!hideLetsTalk && (
+            <ListItem sx={{ mt: 2 }}>
+              <Button
+                component="a"
+                href="/contact"
+                onClick={handleDrawerToggle}
+                variant="contained"
+                fullWidth
+                endIcon={<ArrowOutwardIcon />}
+                sx={{
+                  backgroundColor: '#B871E1',
+                  color: '#000',
+                  borderRadius: '50px',
+                  py: 1.5,
+                  textTransform: 'none',
+                  fontSize: '1rem',
+                  fontWeight: 700,
+                  '&:hover': {
+                    backgroundColor: '#A05AD0',
+                  },
+                }}
+              >
+                Let&apos;s Talk
+              </Button>
+            </ListItem>
+          )}
         </List>
       </Drawer>
     </AppBar>

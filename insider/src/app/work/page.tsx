@@ -318,12 +318,7 @@ function EventCard({ event, index }: { event: EventCard; index: number }) {
 
 export default function WorkPage() {
   const handleContactClick = () => {
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      window.location.href = '/contact';
-    }
+    window.location.href = '/contact';
   };
 
   // Animate title letters

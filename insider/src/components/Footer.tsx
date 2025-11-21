@@ -255,7 +255,7 @@ export default function Footer() {
             </Box>
             <Box
               component="a"
-              href="mailto:info@latrixinsider.com"
+              href="/contact"
               aria-label="Contact us - Let's Talk"
               sx={{
                 display: 'inline-flex',
