@@ -149,10 +149,10 @@ export default function ContactPage() {
 
   return (
     <Box sx={{ minHeight: '100vh', backgroundColor: '#FFFFFF' }}>
-      <NavigationBar forceWhite={true} hideLetsTalk={true} />
+      <NavigationBar forceWhite={true} />
       
       {/* Spacing between nav and content */}
-      <Box sx={{ mt: { xs: 6, md: 8 } }} />
+      <Box sx={{ mt: { xs: 10, md: 12 } }} />
 
       <Container maxWidth="lg" sx={{ py: { xs: 4, md: 6 } }}>
         <Box

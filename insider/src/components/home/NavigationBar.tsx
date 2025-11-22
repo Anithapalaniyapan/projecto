@@ -30,7 +30,7 @@ export default function NavigationBar({ forceWhite = false, hideLetsTalk = false
   };
 
   return (
-    <AppBar
+      <AppBar
       position="fixed"
       elevation={0}
       sx={{
@@ -40,6 +40,10 @@ export default function NavigationBar({ forceWhite = false, hideLetsTalk = false
         borderBottom: forceWhite ? '1px solid rgba(0, 0, 0, 0.1)' : (isScrolled ? '1px solid rgba(0, 0, 0, 0.05)' : 'none'),
         transition: 'all 0.3s ease-in-out',
         zIndex: 1000,
+        width: '100%',
+        top: 0,
+        left: 0,
+        right: 0,
       }}
     >
       <Container maxWidth="xl">
@@ -210,20 +214,25 @@ export default function NavigationBar({ forceWhite = false, hideLetsTalk = false
                 href="/contact"
                 variant="contained"
                 endIcon={
-                  <Box
-                    sx={{
-                      width: 22,
-                      height: 22,
-                      borderRadius: '50%',
-                      border: '1px solid #000',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      ml: 1,
-                    }}
+                  <motion.div
+                    animate={{ x: [0, 3, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
                   >
-                    <ArrowOutwardIcon sx={{ fontSize: 13, color: '#000' }} />
-                  </Box>
+                    <Box
+                      sx={{
+                        width: 22,
+                        height: 22,
+                        borderRadius: '50%',
+                        border: '1px solid #000',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        ml: 1,
+                      }}
+                    >
+                      <ArrowOutwardIcon sx={{ fontSize: 13, color: '#000' }} />
+                    </Box>
+                  </motion.div>
                 }
                 sx={{
                   backgroundColor: '#B871E1',
@@ -261,6 +270,8 @@ export default function NavigationBar({ forceWhite = false, hideLetsTalk = false
             sx={{
               display: { xs: 'flex', md: 'none' },
               color: forceWhite ? '#000000' : (isScrolled ? '#393D75' : '#fff'),
+              zIndex: 1001,
+              position: 'relative',
             }}
           >
             <MenuIcon />
@@ -371,7 +382,14 @@ export default function NavigationBar({ forceWhite = false, hideLetsTalk = false
                 onClick={handleDrawerToggle}
                 variant="contained"
                 fullWidth
-                endIcon={<ArrowOutwardIcon />}
+                endIcon={
+                  <motion.div
+                    animate={{ x: [0, 3, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+                  >
+                    <ArrowOutwardIcon />
+                  </motion.div>
+                }
                 sx={{
                   backgroundColor: '#B871E1',
                   color: '#000',

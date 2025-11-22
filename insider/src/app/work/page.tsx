@@ -330,6 +330,9 @@ export default function WorkPage() {
       <NavigationBar forceWhite={true} />
       
       <Container maxWidth="xl" sx={{ py: { xs: 8, md: 12 } }}>
+        {/* Spacing between nav and heading for mobile/tablet */}
+        <Box sx={{ display: { xs: 'block', lg: 'none' }, mt: { xs: 4, sm: 6, md: 8 } }} />
+        
         {/* Large Title with Letter Animation */}
         <Box
           sx={{

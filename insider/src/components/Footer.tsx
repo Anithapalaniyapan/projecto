@@ -1,6 +1,7 @@
 'use client';
 
 import { Box, Container, Typography, Link } from '@mui/material';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -277,19 +278,24 @@ export default function Footer() {
               }}
             >
               Let&apos;s Talk
-              <Box
-                sx={{
-                  width: { xs: 20, md: 22 },
-                  height: { xs: 20, md: 22 },
-                  borderRadius: '50%',
-                  border: '1px solid #000',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
+              <motion.div
+                animate={{ x: [0, 3, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
               >
-                <ArrowOutwardIcon sx={{ fontSize: { xs: 12, md: 13 }, color: '#000' }} />
-              </Box>
+                <Box
+                  sx={{
+                    width: { xs: 20, md: 22 },
+                    height: { xs: 20, md: 22 },
+                    borderRadius: '50%',
+                    border: '1px solid #000',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <ArrowOutwardIcon sx={{ fontSize: { xs: 12, md: 13 }, color: '#000' }} />
+                </Box>
+              </motion.div>
             </Box>
           </Box>
         </Box>

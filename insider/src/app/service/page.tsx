@@ -179,9 +179,21 @@ function ServiceCard({ service, index }: { service: ServiceItem; index: number }
 
 export default function ServicePage() {
   return (
-    <Box sx={{ minHeight: '100vh', backgroundColor: '#ffffff' }}>
+    <Box sx={{ minHeight: '100vh', backgroundColor: '#ffffff', position: 'relative', overflowX: 'hidden' }}>
       <NavigationBar forceWhite={true} />
-      <Container maxWidth="xl" sx={{ pt: { xs: 8, md: 12 }, pb: { xs: 6, md: 10 } }}>
+      
+      <Container 
+        maxWidth="xl" 
+        sx={{ 
+          pt: { xs: 8, md: 12 }, 
+          pb: { xs: 6, md: 10 },
+          position: 'relative',
+          zIndex: 1,
+        }}
+      >
+        {/* Spacing between nav and heading for mobile/tablet */}
+        <Box sx={{ display: { xs: 'block', lg: 'none' }, mt: { xs: 4, sm: 6, md: 8 } }} />
+        
         {/* Page Title */}
         <Box sx={{ mb: { xs: 4, md: 6 }, textAlign: 'center' }}>
           <Typography
